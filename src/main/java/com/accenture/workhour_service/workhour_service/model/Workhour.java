@@ -1,15 +1,18 @@
 package com.accenture.workhour_service.workhour_service.model;
 
-import com.couchbase.client.core.deps.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.couchbase.client.core.deps.com.fasterxml.jackson.annotation.JsonInclude;
-import com.couchbase.client.core.deps.com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.couchbase.client.core.deps.com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+//import com.couchbase.client.core.deps.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+//import com.couchbase.client.core.deps.com.fasterxml.jackson.annotation.JsonInclude;
+//import com.couchbase.client.core.deps.com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+//import com.couchbase.client.core.deps.com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;
 @JsonDeserialize(builder = Workhour.WorkhourBuilder.class)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
 @Document
 public class Workhour {
     @Id
@@ -20,14 +23,10 @@ public class Workhour {
     public Workhour() {
     }
 
-    public Workhour(String empId, Number yearMonth, Number count) {
-        super();
-        this.empId = empId;
-        this.yearMonth = yearMonth;
-        this.count = count;
-    }
-
     public Workhour(WorkhourBuilder workhourBuilder) {
+        this.empId= workhourBuilder.empId;
+        this.yearMonth=workhourBuilder.yearMonth;
+        this.count=workhourBuilder.count;
     }
 
     public String getEmpId() {
@@ -49,7 +48,7 @@ public class Workhour {
         protected Number count;
 
 
-        public WorkhourBuilder setEmployeeId(String empId) {
+        public WorkhourBuilder setEmpId(String empId) {
             this.empId = empId;
             return this;
         }
