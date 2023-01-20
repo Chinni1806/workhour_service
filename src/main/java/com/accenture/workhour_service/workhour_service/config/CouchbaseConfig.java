@@ -15,7 +15,7 @@ public class CouchbaseConfig extends AbstractCouchbaseConfiguration {
 
     @Override
     public String getUserName() {
-        return evn.getProperty("app.db.username");
+        return evn.getProperty("app.db.userName");
     }
 
     @Override
