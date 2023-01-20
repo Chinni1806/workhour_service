@@ -29,10 +29,11 @@ public class WorkhourController {
     public List<Workhour> getAllEmployeesLeave() {
         return this.workhourService.getAllEmployeesLeave();
     }
-    @PostMapping("/req")
-    @ResponseStatus(HttpStatus.FOUND)
-    public Optional<Workhour> getEmployeeLeaveByEmpIdAndYearMonth(@RequestBody WorkHourReq workhourreq){
-        return this.workhourService.getEmployeeLeaveByEmpIdAndYearMonth(workhourreq);
-    }
+    //@GetMapping("/{empId}/{yearMonth}")
+    //@ResponseStatus(HttpStatus.OK)
+    //public Number getEmployeeLeaveByEmpIdAndYearMonth(@PathVariable("empId") String empId,@PathVariable("yearMonth") Number yearMonth){
+    //    return this.workhourService.getEmployeeLeaveByEmpIdAndYearMonth(empId,yearMonth);
+    //}
+
 
 }

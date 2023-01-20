@@ -4,6 +4,7 @@ import com.accenture.workhour_service.workhour_service.model.WorkHourReq;
 import com.accenture.workhour_service.workhour_service.model.Workhour;
 import com.accenture.workhour_service.workhour_service.repository.WorkhourRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,9 +25,7 @@ public class WorkhourService {
     public List<Workhour> getAllEmployeesLeave() {
         return workhourRepo.findAll();
     }
-    public Optional<Workhour> getEmployeeLeaveByEmpIdAndYearMonth(WorkHourReq workhourreq){
-        Optional<Workhour> res=workhourRepo.findByEmpId(workhourreq.getEmployeeId()).stream().filter(EmpLeave -> Objects.equals(EmpLeave.getYearMonth().intValue(),
-                workhourreq.getYearMonth().intValue())).findFirst();
-        return res;
-    }
+    //public Number getEmployeeLeaveByEmpIdAndYearMonth(@Param("empId") String empId,@Param("yearMonth") Number yearMonth){
+    //    return workhourRepo.findByIdAndYearMonth(empId,yearMonth);
+    //}
 }
