@@ -9,6 +9,10 @@ public class CouchbaseConfig extends AbstractCouchbaseConfiguration {
     @Autowired
     Environment evn;
     @Override
+    protected boolean autoIndexCreation(){
+        return true;
+    }
+    @Override
     public String getConnectionString() {
         return evn.getProperty("app.db.bootstrap-hosts");
     }

@@ -17,8 +17,8 @@ import org.springframework.data.couchbase.core.mapping.Document;
 public class Workhour {
     @Id
     private String empId;
-    private Number yearMonth;
-    private Number count;
+    private int yearMonth;
+    private int count;
 
     public Workhour() {
     }
@@ -33,19 +33,19 @@ public class Workhour {
         return empId;
     }
 
-    public Number getYearMonth() {
+    public int getYearMonth() {
         return yearMonth;
     }
 
-    public Number getCount() {
+    public int getCount() {
         return count;
     }
     @JsonPOJOBuilder(withPrefix = "set")
     public static class WorkhourBuilder {
 
         protected String empId;
-        protected Number yearMonth;
-        protected Number count;
+        protected int yearMonth;
+        protected int count;
 
 
         public WorkhourBuilder setEmpId(String empId) {
@@ -53,12 +53,12 @@ public class Workhour {
             return this;
         }
 
-        public WorkhourBuilder setYearMonth(Number yearMonth) {
+        public WorkhourBuilder setYearMonth(int yearMonth) {
             this.yearMonth = yearMonth;
             return this;
         }
 
-        public WorkhourBuilder setCount(Number count) {
+        public WorkhourBuilder setCount(int count) {
             this.count = count;
             return this;
         }
